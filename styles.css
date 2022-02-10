@@ -1,0 +1,52 @@
+body{
+    margin: 0px;
+
+    display: flex;
+    flex-direction: column;
+    gap:50px;
+}
+
+button{
+    height:100px;
+    width:100px;
+    padding:10px
+}
+
+#display{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+#controls{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+
+
+}
+
+#information{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    width:500px;
+
+    background-color: antiquewhite;
+}
+
+#result{
+    background-color: blue;
+}
+
+.hand{
+    width:500px;
+    height:500px;
+
+    background-color: red;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
