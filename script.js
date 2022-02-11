@@ -12,91 +12,105 @@ function computerPlay(){
     }
 }
 
-function playRound(playerSelection,computerSelection){
-    
+function playRound(playerSelection){
+    //console.log("player:" + playerSelection);
+    //console.log("computer:" + computerSelection);
+
+    let pHand = document.querySelector("#playerHand")
+    pHand.innerText = playerSelection
+
+    let computerSelection = computerPlay()
+    let cHand = document.querySelector("#computerHand")
+    cHand.innerText = computerSelection
+
+    let result = document.querySelector("#result")
 
     if (playerSelection == "Rock"){
         if (computerSelection == "Scissors"){
-            return "You Win! Rock beats Scissors";
+            result.innerText="You Win! Rock beats Scissors";
+            return "p"
         }
         else if (computerSelection == "Paper"){
-            return "You Lose! Paper beats Rock";
+            result.innerText="You Lose! Paper beats Rock";
+            return "c"
         }
         else{
-            return "Draw!";
+            result.innerText="Round ended in draw!";
+            return "d"
         }
     }
 
     else if (playerSelection == "Paper"){
         if (computerSelection == "Rock"){
-            return "You Win! Paper beats Rock";
+            result.innerText="You Win! Paper beats Rock";
+            return "p"
         }
         else if (computerSelection == "Scissors"){
-            return "You Lose! Scissors beats Paper";
+            result.innerText="You Lose! Scissors beats Paper";
+            return "c"
         }
         else{
-            return "Draw!";
+            result.innerText="Round ended in draw!";
+            return "d"
         }
     }
 
     else{
         if (computerSelection == "Rock"){
-            return "You Lose! Rock beats Scissors";
+            result.innerText="You Lose! Rock beats Scissors";
+            return "c"
         }
         else if (computerSelection == "Paper"){
-            return "You Win! Scissors beats Paper";
+            result.innerText="You Win! Scissors beats Paper";
+            return "p"
         }
         else{
-            return "Draw!";
+            result.innerText="Round ended in draw!";
+            return "d"
         }
     }
 }
 
-function game(){
-    let playerSelection;
-    let valid;
-    let result;
-    let rounds = 5;
+let buttons = document.querySelectorAll("button");
+let playerScore = 0;
+let computerScore = 0;
+let roundCount = 0;
 
-    let win = 0;
-    let lose = 0;
 
-    for (let i=0; i< rounds; i++){
+buttons.forEach(button => {
+    button.addEventListener("click", function(e){
+        result = playRound(e.target.innerText);
+        roundCount++;
         
-        valid = false;
-
-        while(valid != true){
-            playerSelection = prompt("Input your selection");
-            playerSelection = playerSelection.slice(0,1).toUpperCase() + playerSelection.slice(1).toLowerCase();
-            if (playerSelection == "Rock" || playerSelection == "Paper" || playerSelection == "Scissors"){
-                valid = true
-            }
-            else{
-                alert("Invalid selection.Try Again")
-            }
+        if (result == "p")
+        {
+            playerScore++;
+        }
+        else if (result == "c")
+        {
+            computerScore++;
         }
 
-        result = playRound(playerSelection,computerPlay());
-        console.log(result);
-        if (result.slice(0,1) == "Y"){
-            if (result.slice(4,5) == "W"){
-                win += 1
+        let score = document.querySelector("#score");
+        score.innerText = playerScore + " - " + computerScore;
+
+        if (roundCount >= 5)
+        {
+            if (playerScore > computerScore)
+            {
+                alert("Game Over. You won!")
             }
-            else{
-                lose += 1
+            else if (playerScore < computerScore)
+            {
+                alert("Game Over. You lost!")
+            }
+            else
+            {
+                alert("Game Over. Game ended in draw")
             }
         }
-    }
+    })
+});
 
-    if (win > lose){
-        console.log("You win the game!")
-    }
-    else if (win < lose){
-        console.log("You lose the game!")
-    }
-    else{
-        console.log("Game ended in a draw")
-    }
 
-    
-}
+
