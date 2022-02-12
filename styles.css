@@ -6,6 +6,8 @@ body{
 }
 
 h1{
+    margin:10px auto;
+
     display: flex;
     justify-content: center;
     align-items: center;
@@ -25,12 +27,21 @@ button{
 
 #controls{
     display: flex;
+    flex-direction: column;
+}
+
+#controlsTop{
+    display: flex;
     flex-direction: row;
-    justify-content: space-evenly;
+    justify-content: space-around;
 
     padding:50px
 
+}
 
+#controlsBottom{
+    display: none;
+    align-self: center;
 }
 
 #information{
@@ -54,26 +65,6 @@ button{
 
 }
 
-#modal{
-    display: none;
-    z-index: 1;
-    position:fixed;
-    left: 0;
-    top: 0;
-
-    height: 100%;
-    width: 100%;
-
-    background-color: rgba(0,0,0,0.4);
-
-    justify-content: center;
-    align-items: center;
-}
-
-#modal-content{
-    width:30%;
-    background-color: white;
-}
 
 .hand{
     width:500px;

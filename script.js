@@ -71,49 +71,53 @@ function playRound(playerSelection){
     }
 }
 
+function game(e){
+    result = playRound(e.target.innerText);
+    roundCount++;
+    
+    if (result == "p")
+    {
+        playerScore++;
+    }
+    else if (result == "c")
+    {
+        computerScore++;
+    }
+
+    score.innerText = playerScore + " - " + computerScore;
+
+    let resultDisplay = document.querySelector('#result')
+    if (roundCount >= 5)
+    {
+        
+        if (playerScore > computerScore)
+        {
+            resultDisplay.innerText = "Game Over. You won!"
+        }
+        else if (playerScore < computerScore)
+        {
+            resultDisplay.innerText = ("Game Over. You lost!")
+        }
+        else
+        {
+            resultDisplay.innerText = ("Game Over. Game ended in draw")
+        }
+
+        let reset = document.querySelector('#controlsBottom')
+        reset.style.display = "block"
+    }
+    }
+
 let buttons = document.querySelectorAll("button");
 let playerScore = 0;
 let computerScore = 0;
 let roundCount = 0;
-let modal = document.querySelector("#modal")
 
+let score = document.querySelector("#score");
+score.innerText = "0 - 0";
 
 buttons.forEach(button => {
-    button.addEventListener("click", function(e){
-        result = playRound(e.target.innerText);
-        roundCount++;
-        
-        if (result == "p")
-        {
-            playerScore++;
-        }
-        else if (result == "c")
-        {
-            computerScore++;
-        }
-
-        let score = document.querySelector("#score");
-        score.innerText = playerScore + " - " + computerScore;
-
-        if (roundCount >= 5)
-        {
-            modal.style.display = "flex"
-            /*
-            if (playerScore > computerScore)
-            {
-                alert("Game Over. You won!")
-            }
-            else if (playerScore < computerScore)
-            {
-                alert("Game Over. You lost!")
-            }
-            else
-            {
-                alert("Game Over. Game ended in draw")
-            }
-            */
-        }
-    })
+    button.addEventListener("click", game)
 });
 
 
