@@ -3,7 +3,12 @@ body{
 
     display: flex;
     flex-direction: column;
-    gap:50px;
+}
+
+h1{
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 button{
@@ -23,6 +28,8 @@ button{
     flex-direction: row;
     justify-content: space-evenly;
 
+    padding:50px
+
 
 }
 
@@ -38,6 +45,34 @@ button{
 
 #result{
     background-color: blue;
+}
+
+#score{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+#modal{
+    display: none;
+    z-index: 1;
+    position:fixed;
+    left: 0;
+    top: 0;
+
+    height: 100%;
+    width: 100%;
+
+    background-color: rgba(0,0,0,0.4);
+
+    justify-content: center;
+    align-items: center;
+}
+
+#modal-content{
+    width:30%;
+    background-color: white;
 }
 
 .hand{

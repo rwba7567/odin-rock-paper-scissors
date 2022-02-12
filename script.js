@@ -75,6 +75,7 @@ let buttons = document.querySelectorAll("button");
 let playerScore = 0;
 let computerScore = 0;
 let roundCount = 0;
+let modal = document.querySelector("#modal")
 
 
 buttons.forEach(button => {
@@ -96,6 +97,8 @@ buttons.forEach(button => {
 
         if (roundCount >= 5)
         {
+            modal.style.display = "flex"
+            /*
             if (playerScore > computerScore)
             {
                 alert("Game Over. You won!")
@@ -108,6 +111,7 @@ buttons.forEach(button => {
             {
                 alert("Game Over. Game ended in draw")
             }
+            */
         }
     })
 });
