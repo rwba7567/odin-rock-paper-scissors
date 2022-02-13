@@ -12,18 +12,34 @@
     <body>
         <h1>ROCK PAPER SCISSORS</h1>
         <div id="display">
-            <div class="hand" id="playerHand">Player Hand</div>
+            <div class="hand" id="playerHand">
+                <div class="title centered" id="playerHandTitle">PLAYER</div>
+                <div class="selection centered" id="playerSelection">
+                    <img class="selectionImg" id="playerimg" src="" alt="">
+                </div>
+            </div>
             <div id="information">
                 <div id="score">score</div>
                 <div id="result">result</div>
             </div>
-            <div class="hand" id="computerHand">Computer Hand</div>
+            <div class="hand" id="computerHand">
+                <div class="title centered" id="computerHandTitle">COMPUTER</div>
+                <div class="selection centered" id="computerSelection">
+                    <img class="selectionImg" id="computerimg" src="" alt="">
+                </div>
+            </div>
         </div>
         <div id="controls">
             <div id="controlsTop">
-                <button id="rock">Rock</button>
-                <button id="paper">Paper</button>
-                <button id="scissors">Scissors</button>
+                <div class="options" id="rock">
+                    <img src="images/rock.jpg" alt="rock">
+                </div>
+                <div class="options" id="paper">
+                    <img src="images/paper.jpg" alt="paper">
+                </div>
+                <div class="options" id="scissors">
+                    <img src="images/scissors.jpg" alt="scissors">
+                </div>
             </div>
             <div id="controlsBottom">
                 <button id="reset" onclick="location.reload()">Reset</button>
